@@ -1,0 +1,18 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <a class="btn btn-outline-info mb-5" role="button" href="{% url 'landing-page' %}">Back Home</a>
+    {% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        {% for category in question.category_set.all %}
+        <li><a href="{% url 'polls:question-detail' category.slug question.pk %}">{{ question.question_text }}</a></li>
+        {% endfor%}
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+</div>
+{% endblock %}

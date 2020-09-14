@@ -1,0 +1,38 @@
+li a {
+    color: rgb(7 0 128);
+}
+body {
+    background: url("images/blue-snow.png");
+}
+nav {
+  background: url("images/blue-snow.png");
+}
+.description {
+    left: 50%;
+    position: absolute;
+    top: 25%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+  }
+
+.container.features {
+    margin: 7em auto;
+    padding: 1em;
+    position: relative;
+  }
+.feature-title {
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+.features img {
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
+  }
+.question.row {
+  padding: 2em;
+  position: relative;
+}

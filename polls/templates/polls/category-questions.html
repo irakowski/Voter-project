@@ -1,0 +1,16 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+<div class="mt-5 container">
+    <h3 class="text-center"><strong>Questions</strong></h3>
+    {% for question  in category.question.all %}
+    {% if question.choice_set.all %}
+    <div class="question row">
+        <div class="col-8">{{question.question_text}}</div>
+        <div class="col-4"><a class="btn btn-outline-info" href="{% url 'polls:question-detail' category.slug question.pk %}">Answer</a></div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+        
+{% endblock %}

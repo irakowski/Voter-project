@@ -1,0 +1,21 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+<a class="btn btn-outline-info mb-5" role="button" href="{% url 'polls:category-polls' category.slug %}">Question category</a>
+<a class="btn btn-outline-info mb-5" role="button" href="{% url 'polls:index' %}">All Questions</a>
+
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' category.slug question.pk %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+{% endfor %}
+<button type="submit" value="Vote" class="btn btn-info mt-2">Vote</button>
+</form>
+</div>
+{% endblock %}

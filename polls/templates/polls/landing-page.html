@@ -1,0 +1,27 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+
+{% block content %}    
+  <div class="description">
+    <h1>Welcome to the Voter!</h1>
+    <p class="text-muted">Make your vote count</p>
+  </div>
+  {% if categories %}
+  <div class="container features">
+    <h3 class="mt-5 mb-5 text-center"><strong>Vote in category</strong></h3>
+    <div class="row">
+      {% for category in categories%}
+        <div class="col-lg-4 col-md-4 col-sm-12">
+          <h3 class="feature-title"><a type="submit" class="btn btn-info btn-lg btn-block" href="{% url 'polls:category-polls' category.slug %}">{{ category.name }}</a></h3>
+          <p class="text-center">{{ category.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-5">
+      <a class="btn btn-outline-info btn-lg" role="button" href="{% url 'categories' %}">See all</a>
+    </div>
+    {% else %}
+    <p>No categories created so far. populate_polls_db before lanching an app is required.</p>
+    {% endif %}
+  </div>
+{% endblock %}
