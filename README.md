@@ -14,6 +14,7 @@ Before running project adjust your own setting for the local machine in local_se
     DB_HOST = None
 
 Run  python manage.py migrate to apply migrations!
+
 Run  python manage.py populate_polls_db   to populate database with polls!
 
 Run  python manage.py runserver   to start development server!
